@@ -10,7 +10,8 @@ class User < ApplicationRecord
 
   has_many :questions
 
-  validates :email, :username, :password, presence: true, on: :create
+  validates :email, :username, presence: true
+  validates :password, presence: true, on: :create
   validates :password, confirmation: true
   validates :email, :username, uniqueness: true
   validates :username, length: { maximum: 40 }

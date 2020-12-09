@@ -1,7 +1,6 @@
 require 'openssl'
 
 class User < ApplicationRecord
-
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
   USERNAME_REGEXP = /\A\w+\z/
@@ -12,7 +11,6 @@ class User < ApplicationRecord
   has_many :questions
 
   validates :email, :username, :password, presence: true, on: :create
-  validates :username, exclusion: [ nil ]
   validates :password, confirmation: true
   validates :email, :username, uniqueness: true
   validates :username, length: { maximum: 40 }

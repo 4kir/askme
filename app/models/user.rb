@@ -18,7 +18,8 @@ class User < ApplicationRecord
   validates :username, length: { maximum: 40 }
   validates :username, format: { with: USERNAME_REGEXP }
   validates :email, format: { with: EMAIL_REGEXP }
-  validates :profile_color, format: { with: PROFILE_COLOR_REGEXP } 
+  validates :profile_color, format: { with: PROFILE_COLOR_REGEXP }
+  validates :avatar_url, format: { with: URI.regexp }, allow_blank: true
 
   before_validation :username_and_email_downcase
   before_save :encrypt_password

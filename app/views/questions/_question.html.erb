@@ -12,8 +12,9 @@
 
     <div class="question-author">
       <%= 'автор: ' %>
-      <% if question.author.present? %>
-        <%= link_to question.author.username, user_path(question.author) %>
+      <% author = question.author %>
+      <% if author.present? %>
+        <%= link_to author.username, user_path(author) %>
       <% else %>
         <%= 'anonymous' %>
       <% end %>

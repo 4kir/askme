@@ -19,22 +19,6 @@ ActiveRecord::Schema.define(version: 2021_03_16_200358) do
     t.index ["text"], name: "index_hashtags_on_text", unique: true
   end
 
-  create_table "hashtaq_questions", force: :cascade do |t|
-    t.integer "hashtag_id", null: false
-    t.integer "question_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["hashtag_id"], name: "index_hashtaq_questions_on_hashtag_id"
-    t.index ["question_id"], name: "index_hashtaq_questions_on_question_id"
-  end
-
-  create_table "hashtaqs", force: :cascade do |t|
-    t.string "text", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["text"], name: "index_hashtaqs_on_text", unique: true
-  end
-
   create_table "questions", force: :cascade do |t|
     t.string "text"
     t.string "answer"
@@ -60,7 +44,5 @@ ActiveRecord::Schema.define(version: 2021_03_16_200358) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "hashtaq_questions", "hashtags"
-  add_foreign_key "hashtaq_questions", "questions"
   add_foreign_key "questions", "users"
 end

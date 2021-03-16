@@ -15,6 +15,7 @@ gem 'rails_12factor'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'lightbox2-rails'
+gem 'rails-i18n'
 
 group :production do
   gem 'pg'

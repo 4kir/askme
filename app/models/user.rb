@@ -4,7 +4,6 @@ class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
   USERNAME_REGEXP = /\A\w+\z/
-  EMAIL_REGEXP = /\A\w+@\w+\.\w+\z/
   PROFILE_COLOR_REGEXP = /\A#([a-f\d]{3}){1,2}\z/
 
   attr_accessor :password
@@ -17,7 +16,7 @@ class User < ApplicationRecord
   validates :email, :username, uniqueness: true
   validates :username, length: { maximum: 40 }
   validates :username, format: { with: USERNAME_REGEXP }
-  validates :email, format: { with: EMAIL_REGEXP }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :profile_color, format: { with: PROFILE_COLOR_REGEXP }
   validates :avatar_url, format: { with: URI.regexp }, allow_blank: true
 

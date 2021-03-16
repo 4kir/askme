@@ -14,6 +14,7 @@ gem 'uglifier'
 gem 'rails_12factor'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'lightbox2-rails'
 
 group :production do
   gem 'pg'
